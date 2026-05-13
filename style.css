@@ -69,3 +69,29 @@ th {
     font-size: 18px;
     border: 2px solid #cbb5a2;
 }
+
+nav a {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid #8b4513;
+    padding: 5px 15px;
+    margin-right: 5px;
+    transition: 0.3s;
+    background-color: #fff;
+}
+
+ul > li {
+    list-style-type: square;
+    color: #5d4037;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+h2 + p {
+    font-style: italic;
+    font-size: 1.1em;
+    color: #a0522d;
+    border-left: 4px solid #8b4513;
+    padding-left: 15px;
+    margin-top: 10px;
+}
