@@ -1,21 +1,18 @@
-/* Селектор тегу BODY */
 body {
-    background-color: #fffaf0; /* Ніжний кремовий фон */
+    background-color: #fffaf0; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
-    color: #4a2c2a; /* Темно-коричневий колір тексту */
-    line-height: 1.6; /* Міжрядковий інтервал */
+    color: #4a2c2a; 
+    line-height: 1.6;
     margin: 20px;
 }
 
-/* Селектор для всіх заголовків */
 h1, h2, h3 {
-    color: #8b4513; /* Колір паленої цегли */
+    color: #8b4513;
     text-align: center;
     text-transform: uppercase;
 }
 
-/* Селектор ідентифікатора для підвалу */
 #footer {
     border-top: 2px solid #8b4513;
     padding: 20px;
@@ -24,30 +21,26 @@ h1, h2, h3 {
     color: #777;
 }
 
-/* Селектор класу для важливих приміток */
 .important-note {
-    background-color: #ffe4b5; /* Колір "Мокасин" */
+    background-color: #ffe4b5; 
     border-left: 5px solid #d2691e;
     padding: 15px;
     margin: 10px 0;
     font-weight: bold;
-    color: #b22222 !important; /* Використання !important */
+    color: #b22222 !important; 
 }
 
-/* Стилі для посилань (зовнішній файл) */
 a {
-    color: #d2691e; /* Оранжево-коричневий */
+    color: #d2691e;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* Псевдоклас для наведення */
 a:hover {
     text-decoration: underline;
     color: #ff4500;
 }
 
-/* Стилі для списків та таблиць (Завдання №2) */
 ul, ol, dl {
     background-color: #ffffff;
     border: 1px solid #deb887;
@@ -59,9 +52,9 @@ ul, ol, dl {
 table {
     width: 90%;
     margin: 20px auto;
-    border-collapse: collapse; /* Об'єднання меж */
+    border-collapse: collapse; 
     background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Тінь для таблиці */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
 }
 
 th, td {
@@ -71,8 +64,8 @@ th, td {
 }
 
 th {
-    background-color: #fff0f0; /* Світліший відтінок замість #ffcccb */
+    background-color: #fff0f0; 
     color: #333;
     font-size: 18px;
-    border: 2px solid #cbb5a2; /* Колір межі залишається незмінним */
+    border: 2px solid #cbb5a2;
 }
