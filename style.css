@@ -13,61 +13,14 @@ h1, h2, h3 {
     text-transform: uppercase;
 }
 
-#footer {
-    border-top: 2px solid #8b4513;
-    padding: 20px;
-    margin-top: 30px;
+.navigation-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #fffaf0;
+    border-bottom: 3px solid #3d2b1f;
+    padding: 10px 0;
     text-align: center;
-    color: #777;
-}
-
-.important-note {
-    background-color: #ffe4b5; 
-    border-left: 5px solid #d2691e;
-    padding: 15px;
-    margin: 10px 0;
-    font-weight: bold;
-    color: #b22222 !important; 
-}
-
-a {
-    color: #614633;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-a:hover {
-    text-decoration: underline;
-    color: #000000;
-}
-
-ul, ol, dl {
-    background-color: #ffffff;
-    border: 1px solid #deb887;
-    padding: 20px 40px;
-    border-radius: 10px;
-    margin: 15px 0;
-}
-
-table {
-    width: 90%;
-    margin: 20px auto;
-    border-collapse: collapse; 
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-}
-
-th, td {
-    border: 1px solid #8b4513;
-    padding: 12px;
-    text-align: center;
-}
-
-th {
-    background-color: #fff0f0; 
-    color: #333;
-    font-size: 18px;
-    border: 2px solid #cbb5a2;
 }
 
 nav a {
@@ -78,23 +31,16 @@ nav a {
     margin-right: 5px;
     transition: 0.3s;
     background-color: #fff;
+    display: inline-block;
 }
 
-ul > li {
-    list-style-type: square;
-    color: #5d4037;
-    font-weight: 500;
-    margin-bottom: 5px;
+nav a:link { color: #3d2b1f; text-decoration: none; }
+nav a:visited { color: #5d4037; }
+nav a:hover { 
+    background-color: #3d2b1f; 
+    color: #ffffff; 
 }
-
-h2 + p {
-    font-style: italic;
-    font-size: 1.1em;
-    color: #a0522d;
-    border-left: 4px solid #8b4513;
-    padding-left: 15px;
-    margin-top: 10px;
-}
+nav a:active { color: #b22222; }
 
 .content-section {
     display: block;
@@ -113,6 +59,24 @@ h2 + p {
     line-height: 1.8;
 }
 
+.content-section p::first-line {
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+.top-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #8b4513;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    z-index: 1001;
+    font-weight: bold;
+}
+
 .image-float-right {
     float: right;
     margin-left: 30px;
@@ -122,14 +86,20 @@ h2 + p {
     height: auto; 
 }
 
-.navigation-sticky {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background-color: #fffaf0;
-    border-bottom: 3px solid #3d2b1f;
-    padding: 10px 0;
-    text-align: center;
+ul > li {
+    list-style-type: square;
+    color: #5d4037;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+h2 + p {
+    font-style: italic;
+    font-size: 1.1em;
+    color: #a0522d;
+    border-left: 4px solid #8b4513;
+    padding-left: 15px;
+    margin-top: 10px;
 }
 
 .term-highlight {
@@ -140,21 +110,30 @@ h2 + p {
     border-radius: 3px;
 }
 
-.navigation-sticky {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background-color: #fffaf0;
-    border-bottom: 3px solid #3d2b1f;
-    padding: 10px 0;
-}
-
-.content-section p::first-line {
-    font-variant: small-caps;
-    font-weight: bold;
-}
-
 .universal-note::before {
-    content: "ПРИМІТКА: ";
+    content: "ПОРАДА: ";
     color: #d2691e;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse; 
+    background-color: #ffffff;
+}
+
+th, td {
+    border: 1px solid #8b4513;
+    padding: 12px;
+    text-align: center;
+}
+
+#footer {
+    border-top: 2px solid #8b4513;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: center;
+    color: #777;
 }
