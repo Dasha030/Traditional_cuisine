@@ -1,11 +1,9 @@
-// --- ЗАВДАННЯ 1: Функції та логіка ---
+// --- РОБОТА З ФУНКЦІЯМИ (Лабораторна 6) ---
 
-// Інформація про розробника з параметром за замовчуванням
 function showDeveloperInfo(lastName, firstName, role = "Головний шеф-розробник") {
     alert(`Розробник сторінки:\n${lastName} ${firstName}\nПосада: ${role}`);
 }
 
-// Порівняння назв страв (порівняння рядків)
 function compareDishes(dish1, dish2) {
     if (dish1.length > dish2.length) {
         alert(`Назва "${dish1}" довша за "${dish2}"`);
@@ -16,7 +14,6 @@ function compareDishes(dish1, dish2) {
     }
 }
 
-// Планування меню (Діалог з циклом та перевіркою)
 function planMenu() {
     let daysInput = prompt("На скільки днів ви хочете скласти меню?", "3");
     let days = parseInt(daysInput);
@@ -33,9 +30,8 @@ function planMenu() {
     alert(schedule);
 }
 
-// --- ЗАВДАННЯ 2: DOM, Таймери та Локація ---
+// --- РОБОТА З DOM ТА ТАЙМЕРАМИ (Лабораторна 6) ---
 
-// Зміна теми на 30 секунд (Нічний режим)
 function nightMode() {
     const originalBg = document.body.style.backgroundColor;
     const originalColor = document.body.style.color;
@@ -61,68 +57,38 @@ function nightMode() {
     }, 30000);
 }
 
-// Перенаправлення (наприклад, на доставку продуктів або рецепти)
 function orderIngredients() {
     if (confirm("Бажаєте перейти на сайт для замовлення фермерських продуктів?")) {
-        location.href = "https://silpo.ua"; // Або будь-який інший лінк
+        location.href = "https://silpo.ua";
     }
 }
 
-// Функція для вставки елементів через DOM (createElement / prepend)
-function addNewNote() {
-    const newDiv = document.createElement("div");
-    newDiv.className = "js-note";
-    newDiv.style.padding = "10px";
-    newDiv.style.backgroundColor = "#fff9c4";
-    
-    const text = document.createTextNode("Сьогодні діє знижка на всі рецепти випічки!");
-    newDiv.append(text);
-    
-    const container = document.querySelector(".content-section");
-    container.prepend(newDiv);
-}
-
 function updateKitchenInventory() {
-    // 1. Використання getElementById та querySelectorAll
-    // (Припустимо, у вас в HTML є блоки з такими id та класами)
     let mainRecipe = document.getElementById("main-recipe"); 
-    let ingredients = document.querySelectorAll(".ingredients-list li");
+    let ingredients = document.querySelector(".ingredients-list");
     let noteSection = document.getElementById("kitchen-note");
 
-    // 2. Демонстрація властивостей DOM-вузла у консолі
-    console.log("innerHTML головного рецепта:", mainRecipe.innerHTML);
-    console.log("outerHTML головного рецепта:", mainRecipe.outerHTML);
-    // Беремо значення текстового вузла
+    // Вивід у консоль (Крок 2 лаби 6)
+    console.log("innerHTML рецепта:", mainRecipe.innerHTML);
     if (noteSection.childNodes[0]) {
         console.log("nodeValue примітки:", noteSection.childNodes[0].nodeValue);
     }
 
-    // 3. Зміна тексту через textContent
+    // Маніпуляції (Крок 4 лаби 6)
     mainRecipe.textContent = "Сьогодні готуємо: Святковий козацький борщ!";
-    mainRecipe.style.color = "#8b4513"; // Ваш коричневий колір
+    mainRecipe.style.color = "#8b4513";
     mainRecipe.style.fontWeight = "bold";
 
-    // 4. Створення елементів та вставка через append (в кінець списку)
     let spice = document.createElement("li");
-    let spiceText = document.createTextNode("Таємна суміш спецій");
-    spice.append(spiceText);
+    spice.textContent = "Таємна суміш спецій";
     spice.style.color = "#d2691e";
-    document.querySelector(".ingredients-list").append(spice);
+    ingredients.append(spice);
 
-    // 5. Вставка через prepend (на початок списку)
     let water = document.createElement("li");
     water.textContent = "Джерельна вода (3 літри)";
     water.style.color = "#2980b9";
-    document.querySelector(".ingredients-list").prepend(water);
+    ingredients.prepend(water);
 
-    // 6. Вставка через after (одразу після елемента)
-    let safetyNote = document.createElement("p");
-    safetyNote.textContent = "Обережно з гострим ножем!";
-    safetyNote.style.color = "red";
-    safetyNote.style.fontSize = "0.9em";
-    mainRecipe.after(safetyNote);
-
-    // 7. Заміна елемента через replaceWith
     let oldTool = document.getElementById("old-utensil");
     if (oldTool) {
         let newTool = document.createElement("span");
@@ -131,9 +97,92 @@ function updateKitchenInventory() {
         oldTool.replaceWith(newTool);
     }
 
-    // 8. Видалення вузла через remove
     let saltOverload = document.getElementById("extra-salt");
-    if (saltOverload) {
-        saltOverload.remove(); 
-    }
+    if (saltOverload) saltOverload.remove();
 }
+
+// --- ОБРОБНИКИ ПОДІЙ (Лабораторна 7) ---
+
+function mouseOverAction() {
+    console.log("Подія миші спрацювала!");
+    document.getElementById("main-recipe").style.textShadow = "2px 2px 5px #8b4513";
+}
+
+// Об'єкт-обробник (Завдання 1.3)
+let chefManager = {
+    handleEvent(event) {
+        alert("Обробник-об'єкт спрацював на тегу: " + event.currentTarget.tagName);
+    }
+};
+
+// Функції для addEventListener
+function handler1() { alert("Починаємо приготування!"); }
+function handler2() { console.log("Кнопку натиснуто: обробник 2 зафіксовано."); }
+
+// Делегація: Меню дій (Завдання 2.2)
+const menuActions = {
+    save() { alert("Рецепт збережено у вибране!"); },
+    print() { window.print(); },
+    share() { alert("Посилання скопійовано!"); }
+};
+
+// Призначення подій після завантаження DOM
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // addEventListener (Завдання 1.2)
+    const startBtn = document.getElementById("start-cooking-btn");
+    if (startBtn) {
+        startBtn.addEventListener("click", handler1);
+        startBtn.addEventListener("click", handler2);
+
+        // Видалення через 10 сек (Завдання 1.4)
+        setTimeout(() => {
+            startBtn.removeEventListener("click", handler1);
+            console.log("Перший обробник видалено");
+        }, 10000);
+    }
+
+    // Об'єкт-обробник (Завдання 1.3)
+    const infoBox = document.querySelector(".important-note");
+    if (infoBox) {
+        infoBox.addEventListener("click", chefManager);
+    }
+
+    // Делегація для списку (Завдання 2.1)
+    const ingredientsList = document.querySelector(".ingredients-list");
+    if (ingredientsList) {
+        ingredientsList.onclick = function(event) {
+            if (event.target.tagName !== 'LI') return;
+            let allItems = ingredientsList.querySelectorAll("li");
+            allItems.forEach(li => li.style.backgroundColor = "transparent");
+            event.target.style.backgroundColor = "#fff9c4";
+        };
+    }
+
+    // Делегація для меню (Завдання 2.2)
+    const actionMenu = document.getElementById("action-menu");
+    if (actionMenu) {
+        actionMenu.onclick = function(event) {
+            let action = event.target.dataset.action;
+            if (action && menuActions[action]) {
+                menuActions[action]();
+            }
+        };
+    }
+});
+
+// ПАТЕРН "ПОВЕДІНКА" (Завдання 2.3)
+document.addEventListener('click', function(event) {
+    // Перемикач видимості
+    let toggleId = event.target.dataset.toggleId;
+    if (toggleId) {
+        let elem = document.getElementById(toggleId);
+        if (elem) elem.hidden = !elem.hidden;
+    }
+
+    // Лічильник вподобань
+    if (event.target.dataset.counter !== undefined) {
+        let span = event.target.querySelector('span');
+        if (span) span.innerHTML = parseInt(span.innerHTML) + 1;
+    }
+});
