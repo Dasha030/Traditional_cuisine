@@ -186,3 +186,61 @@ document.addEventListener('click', function(event) {
         if (span) span.innerHTML = parseInt(span.innerHTML) + 1;
     }
 });
+
+// --- Завдання 1: Mouseover/Mouseout ---
+let hoverZone = document.getElementById("hover-zone");
+
+hoverZone.addEventListener("mouseover", function(event) {
+    if (event.target.classList.contains("hover-item")) {
+        event.target.classList.add("hover-active");
+        // event.relatedTarget показує, звідки прийшов курсор
+        console.log("Прийшли з:", event.relatedTarget?.tagName);
+    }
+});
+
+hoverZone.addEventListener("mouseout", function(event) {
+    if (event.target.classList.contains("hover-item")) {
+        event.target.classList.remove("hover-active");
+    }
+});
+
+// --- Завдання 2: Drag-and-Drop ---
+let dragPot = document.getElementById("drag-pot");
+
+dragPot.addEventListener("mousedown", function(event) {
+    dragPot.style.cursor = "grabbing";
+    
+    let shiftX = event.clientX - dragPot.getBoundingClientRect().left;
+    let shiftY = event.clientY - dragPot.getBoundingClientRect().top;
+
+    let table = document.getElementById("kitchen-table");
+
+    function moveAt(clientX, clientY) {
+        let rect = table.getBoundingClientRect();
+        let newLeft = clientX - rect.left - shiftX;
+        let newTop = clientY - rect.top - shiftY;
+
+        // Обмеження, щоб не винести глечик за межі столу
+        if (newLeft < 0) newLeft = 0;
+        if (newTop < 0) newTop = 0;
+        if (newLeft > rect.width - dragPot.offsetWidth) newLeft = rect.width - dragPot.offsetWidth;
+        if (newTop > rect.height - dragPot.offsetHeight) newTop = rect.height - dragPot.offsetHeight;
+
+        dragPot.style.left = newLeft + 'px';
+        dragPot.style.top = newTop + 'px';
+    }
+
+    function onMouseMove(event) {
+        moveAt(event.clientX, event.clientY);
+    }
+
+    document.addEventListener("mousemove", onMouseMove);
+
+    document.addEventListener("mouseup", function onMouseUp() {
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+        dragPot.style.cursor = "grab";
+    });
+});
+
+dragPot.ondragstart = function() { return false; };

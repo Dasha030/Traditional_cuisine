@@ -137,3 +137,44 @@ th, td {
     text-align: center;
     color: #777;
 }
+
+/* Стиль для підсвічування страв */
+.dish-card {
+    transition: all 0.3s ease;
+    padding: 15px;
+    border: 1px solid #deb887;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.hover-active {
+    background-color: #8b4513 !important;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Стиль для перетягування */
+#kitchen-table {
+    width: 100%;
+    height: 300px;
+    background: #fdf5e6;
+    border: 2px dashed #8b4513;
+    position: relative;
+    margin-top: 20px;
+}
+
+#drag-pot {
+    width: 80px;
+    height: 80px;
+    background: #d2691e;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% 50% 40% 40%;
+    position: absolute;
+    cursor: grab;
+    user-select: none;
+    z-index: 1000;
+}
