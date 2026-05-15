@@ -2,29 +2,45 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Контакти — Традиційна кухня</title>
+    <meta name="author" content="Тетерук Дарія">
+    <title>Традиційна кухня — Контакти</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Зв'яжіться з нами</h1>
-        <nav>
-            <a href="index.html">Головна</a> | <a href="recipes.html">Рецепти</a> | <a href="desserts.html">Десерти</a> | <a href="contacts.html">Контакти</a>
-        </nav>
-    </header>
+    <h1>Зв'яжіться з нами</h1>
+    <p><a href="index.html">На головну</a></p>
 
-    <main>
-        <section>
-            <h2>Наші дані</h2>
-            <address>
-                Email: <a href="mailto:teteryk.daria@kpi.ua">teteryk.daria@kpi.ua</a><br>
-                Телефон: +380 44 123 45 67<br>
-                Адреса: м. Київ, КПІ ім. Ігоря Сікорського
-            </address>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2026 Тетерук Дарія</p>
-    </footer>
+    <h3>Графік прийому рецептів</h3>
+    <table border="2">
+        <colgroup>
+            <col style="background-color: #ffe0b2;">
+            <col span="2">
+        </colgroup>
+        <thead>
+            <tr>
+                <th rowspan="2">День тижня</th>
+                <th colspan="2">Час прийому</th>
+            </tr>
+            <tr>
+                <th>Зміна 1</th>
+                <th>Зміна 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Понеділок - П'ятниця</td>
+                <td>09:00 - 13:00</td>
+                <td>14:00 - 18:00</td>
+            </tr>
+            <tr>
+                <td>Субота</td>
+                <td colspan="2" align="center">10:00 - 15:00</td>
+            </tr>
+            <tr>
+                <td>Неділя</td>
+                <td colspan="2" align="center"><i>Вихідний</i></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

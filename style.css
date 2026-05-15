@@ -1,0 +1,44 @@
+body {
+    background-color: #fffaf0;
+    font-family: Arial, sans-serif;
+    color: #4a2c2a;
+    line-height: 1.6;
+    margin: 20px;
+}
+
+h1, h2, h3 {
+    color: #8b4513;
+    text-align: center;
+}
+
+.important-note {
+    background-color: #ffe4b5;
+    border-left: 5px solid #d2691e;
+    padding: 15px;
+    margin: 10px 0;
+    color: #b22222 !important; /* Демонстрація !important */
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #8b4513;
+    padding: 12px;
+}
+
+th {
+    background-color: #fff0f0; /* Світліший відтінок замість #ffcccb */
+    color: #333;
+    font-size: 18px;
+    border: 2px solid #cbb5a2; /* Колір межі залишається незмінним */
+}
+
+ul, ol, dl {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    border: 1px solid #deb887;
+}
